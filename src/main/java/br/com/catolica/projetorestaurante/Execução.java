@@ -1,27 +1,44 @@
 package br.com.catolica.projetorestaurante;
 
-import java.util.List;
+import java.util.Date;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 import br.com.catolica.model.Cargo;
+import br.com.catolica.model.Categoria;
+import br.com.catolica.model.Funcionario;
+import br.com.catolica.model.Produto;
+import br.com.catolica.model.Venda;
 
 public class Execução {
 
-	public static void save(Cargo cargo){
+	public static void save(Venda funcionario){
 		EntityManager manager = Conexao.getEntityManager();
 		manager.getTransaction().begin();//Transaction só é usada quando haver mudança no banco, INSERT, DELETE, UPDATE
-		manager.merge(cargo);
+		manager.merge(funcionario);
 		manager.getTransaction().commit();
 		manager.close();
 	}
 	
-	public static Cargo searchById(int id){
+	public static Categoria searchById(int id){
 		EntityManager manager = Conexao.getEntityManager();
-		Cargo cargo = (Cargo)manager.find(Cargo.class, id);
+		Categoria cargo = (Categoria)manager.find(Categoria.class, id);
 		manager.close();
 		return cargo;
+	}
+	
+	public static Produto searchProdutoById(int id){
+		EntityManager manager = Conexao.getEntityManager();
+		Produto produto = (Produto)manager.find(Produto.class, id);
+		manager.close();
+		return produto;
+	}
+	
+	public static Funcionario searchFuncionarioById(int id){
+		EntityManager manager = Conexao.getEntityManager();
+		Funcionario funcionario = (Funcionario)manager.find(Funcionario.class, id);
+		manager.close();
+		return funcionario;
 	}
 	
 	/*public static void removeById(int id){
@@ -53,9 +70,38 @@ public class Execução {
 	}*/
 	
 	public static void main(String[] args) {
-		Cargo cargo = new Cargo();
+		/*Cargo cargo = new Cargo();
 		cargo.setDescricao("Opa");
-		save(cargo);
+		save(cargo);*/
+		
+		/*Funcionario funcionario = new Funcionario();
+		funcionario.setNome("Robervaldo");
+		funcionario.setId_cargo(searchById(1));
+		save(funcionario);*/
+		
+		/*Categoria categoria = new Categoria();
+		categoria.setDescricao("Lanche");
+		save(categoria);*/
+		
+		
+		/*Produto produto = new Produto();
+		produto.setDescricao("Batata-frita");
+		produto.setValor(1.00);
+		produto.setId_categoria(searchById(1));
+		produto.setCusto(0.50);
+		produto.setQtde_estoque(5);
+		save(produto);*/
+		
+		Venda venda = new Venda();
+		venda.setId_funcionario(searchFuncionarioById(1));
+		venda.setId_produto(searchProdutoById(1));
+		venda.setForma_pgto(1);
+		venda.setMesa(3);
+		venda.setQtd_produto(4);
+		venda.setStatus(1);
+		venda.setValor_produto(4.55);
+		venda.setDatahora_pedido(new Date());
+		save(venda);
 		
 		/*Cargo cargo = searchById(1);
 		System.out.println(cargo.getDescricao());*/
