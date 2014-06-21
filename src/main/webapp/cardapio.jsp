@@ -1,7 +1,7 @@
 <h2 class="sub-header ">Cardápio</h2>
 <h3>Bebidas</h3>
 
-<table class="table table-striped">
+<table class="table table-striped table-hover">
 	<thead>
 		<tr>
 			<th class="text-center">Descrição</th>
@@ -62,7 +62,7 @@
 </table>
 
 <h3>Lanches</h3>
-<table class="table table-striped">
+<table class="table table-striped table-hover">
 	<thead>
 		<tr>
 			<th class="text-center">Descrição</th>
@@ -117,7 +117,7 @@
 </table>
 
 <h3>Porções</h3>
-<table class="table table-striped">
+<table class="table table-striped table-hover">
 	<thead>
 		<tr>
 			<th class="text-center">Descrição</th>

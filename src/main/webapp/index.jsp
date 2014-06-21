@@ -25,7 +25,7 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Nome do Funcionário</a></li>
+					<li><a href="#">Nome do Usuário</a></li>
 					<li><a href="login.jsp">Sair</a></li>
 				</ul>
 				<!--
@@ -41,17 +41,21 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li id="pedidos-em-aberto"><a href="#">Pedidos
-							em aberto</a></li>
+					<li id="pedidos-em-aberto"><a href="#">Pedidos em aberto</a></li>
 					<li id="cardapio"><a href="#">Cardápio</a></li>
-					<li><a href="#">Funcionários</a></li>
+					<li id="funcionarios-listagem"><a href="#">Funcionários</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li id="novo-pedido"><a href="#">Novo Pedido</a></li>
+					<li id="novo-funcionario"><a href="#">Cadastrar Funcionários</a></li>
+					<li id="novo-produto"><a href="#">Cadastrar Produtos</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<!--<h1 class="page-header">Título Principal</h1>
 				<h1>Teste!</h1>
-				<h2>Teste!</h2>
 				<h3>Teste!</h3>
+				<h2>Teste!</h2>
 				<h4>Teste!</h4>
 				<h5>Teste!</h5>
 				<h6>Teste!</h6>-->
@@ -67,18 +71,16 @@
 	<script src="resources/js/bootstrap.min.js"></script>
 
 	<script>
-		function LoadPage(element){
-			$("#main-content").load(element.id.replace(/-/g,"_")+".jsp");
+		function LoadPage(element) {
+			$("#main-content").load(element.id.replace(/-/g, "_") + ".jsp", function(){
+				$("i").tooltip();
+			});
+			
 			$("li").removeClass("active");
 			$(element).addClass("active");
-			$("i").tooltip();
 		}
-		
-		$("#pedidos-em-aberto").click(function() {
-			LoadPage(this);
-		});
-		
-		$("#cardapio").click(function() {
+
+		$("li").click(function() {
 			LoadPage(this);
 		});
 	</script>
