@@ -16,14 +16,14 @@
 			<td class="text-center">19:23</td>
 			<td>João</td>
 			<td class="text-right">43,90</td>
-			<td class="text-center"><a href=".pedido1" data-toggle="collapse"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"
-					data-toggle="tooltip" data-placement="top"></i></a></td>
+			<td class="text-center"><a href=".pedido1"
+				data-toggle="collapse"><i class="glyphicon glyphicon-ok"
+					title="Fechar a conta" data-placement="top"></i></a></td>
 		</tr>
 		<tr>
 			<td colspan="100">
 				<div class="collapse pedido1">
-					<table class="table table-striped">
+					<table class="table table-striped table-hover">
 						<tr>
 							<th class="text-center">Descrição</th>
 							<th class="text-center">Valor R$</th>
@@ -36,17 +36,20 @@
 							<td class="text-center">4,99</td>
 							<td class="text-center">João</td>
 							<td class="text-center">19:23</td>
-							<td><input type="checkbox" checked /></td>
+							<td class="text-center"><input type="checkbox" checked /></td>
 						</tr>
 						<tr>
 							<td class="text-center">Coca-Cola 2L</td>
 							<td class="text-center">4,99</td>
 							<td class="text-center">João</td>
 							<td class="text-center">19:23</td>
-							<td><input type="checkbox" checked /></td>
+							<td class="text-center"><input type="checkbox" checked /></td>
 						</tr>
 					</table>
-					<input type="button" value="Fechar a Conta" class="btn pull-right" />
+					<div>
+						<strong>Total: R$ 9,98</strong><input type="button"
+							value="Fechar a Conta" class="btn pull-right btn-success" />
+					</div>
 				</div>
 			</td>
 		</tr>
