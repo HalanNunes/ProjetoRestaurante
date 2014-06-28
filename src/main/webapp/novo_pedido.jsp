@@ -8,8 +8,7 @@
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="mesa">Mesa</label>
 			<div class="col-md-2">
-				<input id="mesa" name="mesa" type="text" placeholder=""
-					class="form-control input-md" required="">
+				<input id="mesa" name="mesa" type="text" placeholder="" class="form-control input-md" required="">
 
 			</div>
 		</div>
@@ -33,8 +32,7 @@
 			<label class="col-md-4 control-label" for="produto">Produto</label>
 			<div class="col-md-6">
 				<div class="input-group">
-					<input id="produto" name="produto" class="form-control"
-						placeholder="" type="text"> <span class="input-group-btn">
+					<input id="produto" name="produto" class="form-control" placeholder="" type="text"> <span class="input-group-btn">
 						<button class="btn btn-success btn-add" type="button">
 							<span class="glyphicon glyphicon-plus"></span>
 						</button>
@@ -42,15 +40,14 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div id="teste"></div>
 
 		<div class="form-group">
 			<label class="col-md-4 control-label">Produto</label>
 			<div class="controls col-md-2">
 				<div class="entry input-group">
-					<input class="form-control" name="fields[]" type="text" /> <span
-						class="input-group-btn">
+					<input class="form-control" name="fields[]" type="text" /> <span class="input-group-btn">
 						<button class="btn btn-success btn-add" type="button">
 							<span class="glyphicon glyphicon-plus"></span>
 						</button>
@@ -76,27 +73,31 @@
 	});*/
 
 	$(function() {
-		$(document).on('click', '.btn-add', function(e) {
-			alert($(this).html());
-			$(this).closest("div:first .form-group").clone().appendTo($("#teste"));
-			/*e.preventDefault();
+		$(document).on(
+				'click',
+				'.btn-add',
+				function(e) {
+					alert($(this).html());
+					$(this).closest("div:first .form-group").clone().appendTo(
+							$("#teste"));
+					/*e.preventDefault();
 
-			var controlSection = $('.controls form:first'), currentEntry = $(
-					this).parents('.entry:first'), newEntry = $(
-					currentEntry.clone()).appendTo(
-					controlSection);
+					var controlSection = $('.controls form:first'), currentEntry = $(
+							this).parents('.entry:first'), newEntry = $(
+							currentEntry.clone()).appendTo(
+							controlSection);
 
-			newEntry.find('input').val('');
-			controlSection
-					.find('.entry:not(:last) .btn-add')
-					.removeClass('btn-add')
-					.addClass('btn-remove')
-					.removeClass('btn-success')
-					.addClass('btn-danger')
-					.html(
-							'<span class="glyphicon glyphicon-minus"></span>');
-			 */
-		}).on('click', '.btn-remove', function(e) {
+					newEntry.find('input').val('');
+					controlSection
+							.find('.entry:not(:last) .btn-add')
+							.removeClass('btn-add')
+							.addClass('btn-remove')
+							.removeClass('btn-success')
+							.addClass('btn-danger')
+							.html(
+									'<span class="glyphicon glyphicon-minus"></span>');
+					 */
+				}).on('click', '.btn-remove', function(e) {
 			$(this).parents('.entry:first').remove();
 
 			e.preventDefault();
