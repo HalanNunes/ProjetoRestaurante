@@ -1,8 +1,25 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="ProjetoRestaurante">
 <head>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-resource.min.js">
+	
+</script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-route.min.js">
+	
+</script>
+<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+<script src="resources/js/ng_funcionario.js"></script>
+<script
+	src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Nome do Restaurante</title>
 
@@ -72,9 +89,7 @@
 	</div>
 	<!-- JS -->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/angular.min.js"></script>
 </body>
 </html>
