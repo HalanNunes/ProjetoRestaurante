@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="ProjetoRestaurante">
 <head>
 
 <script
@@ -15,6 +15,7 @@
 	
 </script>
 <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+<script src="resources/js/ng_funcionario.js"></script>
 <script
 	src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js"></script>
 
@@ -87,32 +88,7 @@
 	</div>
 	<!-- JS -->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
-
-	<script>
-		/*
-		 $.ajaxSetup({
-		 // Disable caching of AJAX responses
-		 cache : false
-		 });
-
-		 function LoadPage(element) {
-		 $("#main-content").empty();
-		 $("#main-content").load(element.id.replace(/-/g, "_") + ".jsp",
-		 function() {
-		 $("i").tooltip();
-		 });
-
-		 $("li").removeClass("active");
-		 $(element).addClass("active");
-		 }
-
-		 $("li").click(function() {
-		 LoadPage(this);
-		 });
-		 */
-	</script>
 </body>
 </html>
