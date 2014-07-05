@@ -5,6 +5,11 @@
 
 	<persistence-unit name="restaurantedb" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.catolica.model.Cargo</class>
+  		<class>br.com.catolica.model.Categoria</class>
+  		<class>br.com.catolica.model.Funcionario</class>
+  		<class>br.com.catolica.model.Produto</class>
+  		<class>br.com.catolica.model.Venda</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost:3306/restaurantedb" />
