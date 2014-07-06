@@ -72,5 +72,14 @@
 		}
 	});
 	
+	app.controller('RetornaCardapio', function ($http, $scope){
+		$scope.getCardapio = function(){
+			$http.get("http://localhost:8080/ProjetoRestaurante/rest/produto/retornaCardapio").
+        	success(function(data) {
+        		$scope.cardapio = data;
+        	});
+		}
+	});
+	
 })();
 

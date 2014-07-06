@@ -37,11 +37,8 @@ public class ProdutoController {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response salvarProduto(final String json) throws JsonParseException, JsonMappingException, IOException {
-		System.out.println(json);
 		Produto ob = new ObjectMapper().readValue(json, Produto.class);
-		System.out.println("opaopaopa");
 		dao.save(ob);
-		System.out.println("opaopaopa");
 		return Response.ok("Meu nome é: "+json).build();
 	}
 
@@ -56,9 +53,9 @@ public class ProdutoController {
 	
 	
 	@GET
-	@Path("/retornaProdutos")
+	@Path("/retornaCardapio")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Produto> retornaProdutos() {
+	public List<Produto> retornaCardapio() {
 		EntityManager manager = Conexao.getEntityManager();
 		Query query = manager.createQuery("SELECT p FROM Produto p");
 		List<Produto> produtos = query.getResultList();
