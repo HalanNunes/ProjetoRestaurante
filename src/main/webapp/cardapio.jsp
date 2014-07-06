@@ -11,17 +11,21 @@
 		<thead>
 			<tr>
 				<th class="text-center">Descrição</th>
-				<th class="text-center">Preço R$</th>
+				<th class="text-center">Preço</th>
 				<th class="text-center">Estoque</th>
+				<th class="text-center"></th>
+				<th class="text-center"></th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="item in cardapio">
 			<tr ng-if="item.id_categoria.id_categoria == 2">
 				<td>{{item.descricao}}</td>
-				<td class="text-right">{{item.valor}}</td>
-				<td class="text-center" ng-if="item.qtde_estoque == 1"><i class="glyphicon glyphicon-ok" title="{{item.qtde_estoque}} item disponível."></i></td>
-				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-ok" title="{{item.qtde_estoque}} items disponíveis."></i></td>
-				<td class="text-center" ng-if="item.qtde_estoque == 0"></td>
+				<td class="text-right">{{item.valor | currency:"R$ "}}</td>
+				<td class="text-center" ng-if="item.qtde_estoque == 1"><i class="glyphicon glyphicon-exclamation-sign" title="{{item.qtde_estoque}} item disponível."></i></td>
+				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-thumbs-up" title="{{item.qtde_estoque}} itens disponíveis."></i></td>
+				<td class="text-center" ng-if="item.qtde_estoque == 0"><i class="glyphicon glyphicon-remove" title="Indisponível"></i></td>
+				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a></td>
+				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir"></i></a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -31,17 +35,21 @@
 		<thead>
 			<tr>
 				<th class="text-center">Descrição</th>
-				<th class="text-center">Preço R$</th>
+				<th class="text-center">Preço</th>
 				<th class="text-center">Estoque</th>
+				<th class="text-center"></th>
+				<th class="text-center"></th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="item in cardapio">
 			<tr ng-if="item.id_categoria.id_categoria == 1">
 				<td>{{item.descricao}}</td>
-				<td class="text-right">{{item.valor}}</td>
-				<td class="text-center" ng-if="item.qtde_estoque == 1"><i class="glyphicon glyphicon-ok" title="{{item.qtde_estoque}} item disponível."></i></td>
-				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-ok" title="{{item.qtde_estoque}} items disponíveis."></i></td>
-				<td class="text-center" ng-if="item.qtde_estoque == 0"></td>
+				<td class="text-right">{{item.valor | currency:"R$ "}}</td>
+				<td class="text-center" ng-if="item.qtde_estoque == 1"><i class="glyphicon glyphicon-exclamation-sign" title="{{item.qtde_estoque}} item disponível."></i></td>
+				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-thumbs-up" title="{{item.qtde_estoque}} itens disponíveis."></i></td>
+				<td class="text-center" ng-if="item.qtde_estoque == 0"><i class="glyphicon glyphicon-remove" title="Indisponível"></i></td>
+				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a></td>
+				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir"></i></a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -51,17 +59,21 @@
 		<thead>
 			<tr>
 				<th class="text-center">Descrição</th>
-				<th class="text-center">Preço R$</th>
+				<th class="text-center">Preço</th>
 				<th class="text-center">Estoque</th>
+				<th class="text-center"></th>
+				<th class="text-center"></th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="item in cardapio">
 			<tr ng-if="item.id_categoria.id_categoria == 3">
 				<td>{{item.descricao}}</td>
-				<td class="text-right">{{item.valor}}</td>
-				<td class="text-center" ng-if="item.qtde_estoque == 1"><i class="glyphicon glyphicon-ok" title="{{item.qtde_estoque}} item disponível."></i></td>
-				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-ok" title="{{item.qtde_estoque}} items disponíveis."></i></td>
-				<td class="text-center" ng-if="item.qtde_estoque == 0"></td>
+				<td class="text-right">{{item.valor | currency:"R$ "}}</td>
+				<td class="text-center" ng-if="item.qtde_estoque == 1"><i class="glyphicon-exclamation-sign glyphicon-ok" title="{{item.qtde_estoque}} item disponível."></i></td>
+				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-thumbs-up" title="{{item.qtde_estoque}} itens disponíveis."></i></td>
+				<td class="text-center" ng-if="item.qtde_estoque == 0"><i class="glyphicon glyphicon-remove" title="Indisponível"></i></td>
+				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a></td>
+				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir"></i></a></td>
 			</tr>
 		</tbody>
 	</table>
