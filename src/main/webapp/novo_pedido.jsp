@@ -41,18 +41,11 @@
 			</div>
 		</div>
 
-		<div id="teste"></div>
-
-		<div class="form-group">
-			<label class="col-md-4 control-label">Produto</label>
-			<div class="controls col-md-2">
-				<div class="entry input-group">
-					<input class="form-control" name="fields[]" type="text" /> <span class="input-group-btn">
-						<button class="btn btn-success btn-add" type="button">
-							<span class="glyphicon glyphicon-plus"></span>
-						</button>
-					</span>
-				</div>
+		<div id="teste" ng-controller="AdicionaProduto">
+			<div class="form-group" data-ng-repeat="choice in choices">
+				<label class="col-md-4 control-label" for="choice" ng-show="showChoiceLabel(choice)">Produto</label>
+				<button ng-show="showAddChoice(choice)" ng-click="addNewChoice()">Adicione outro produto</button>
+				<input type="text" ng-model="choice.name" name="" placeholder="Enter a restaurant name">
 			</div>
 		</div>
 
