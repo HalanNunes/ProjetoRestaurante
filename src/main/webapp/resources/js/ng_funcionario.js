@@ -33,7 +33,7 @@
 	
 	app.controller('RetornaCargos', function ($http, $scope){
 		$scope.getCargos = function(){
-			$http.get("http://localhost:8080/ProjetoRestaurante/rest/funcionario/retornaCargos").
+			$http.get("http://localhost:8080/ProjetoRestaurante/rest/cargo/retornaCargos").
         	success(function(data) {
         		$scope.cargos = data;
         	});
@@ -65,7 +65,7 @@
 	
 	app.controller('RetornaCategorias', function ($http, $scope){
 		$scope.getCategorias = function(){
-			$http.get("http://localhost:8080/ProjetoRestaurante/rest/produto/retornaCategorias").
+			$http.get("http://localhost:8080/ProjetoRestaurante/rest/categoria/retornaCategorias").
         	success(function(data) {
         		$scope.categorias = data;
         	});
@@ -81,15 +81,55 @@
 		}
 	});
 	
-	app.controller('AdicionaProduto', function ($http, $scope){
-		$scope.choices = [{id: 'choice1'}, {id: 'choice2'}, {id: 'choice3'}];
-		$scope.addNewChoice = function() {
-			var newItemNo = $scope.choices.length+1;
-		  	$scope.choices.push({'id':'choice'+newItemNo});
+	app.controller('ProdutoControl', function ($http, $scope){
+		$scope.elements = [{id: 'produto1'}];
+		$scope.addNewProduto = function() {
+			var newItemNo = $scope.elements.length+1;
+		  	$scope.elements.push({'id_produto':'produto'+newItemNo});
 		};
-		$scope.showAddChoice = function(choice) {
-			return choice.id === $scope.choices[$scope.choices.length - 1].id;
+		$scope.showAddProduto = function(produto) {
+			return produto.id_produto === $scope.produto[$scope.elements.length - 1].id_produto;
 		};
+		$scope.getProdutos = function(){
+			$http.get("http://localhost:8080/ProjetoRestaurante/rest/produto/retornaProdutos").
+        	success(function(data) {
+        		$scope.produtos = data;
+        	});
+		}
+		
+		$scope.getProdutoById = function(id){
+			$http.get("http://localhost:8080/ProjetoRestaurante/rest/produto/retornarProduto/"+id).
+        	success(function(data) {
+        		$scope.produto = data;
+        	});
+		}
+		
+		$scope.getFuncionarioById = function(id){
+			$http.get("http://localhost:8080/ProjetoRestaurante/rest/funcionario/retornarFuncionario/"+id).
+        	success(function(data) {
+        		$scope.funcionario = data;
+        	});
+		}
+		
+		$scope.submitFormVenda = function(){
+			var obj_prod = $scope.getProdutoById(28);
+			var obj_func = $scope.getFuncionarioById(28);
+	    	var dataObject = {
+	    		id_produto: obj_prod,
+	    		valor_produto: $scope.descricao,
+	    		mesa: $scope.valor,
+	    		id_funcionario: obj_func,
+	    		qtd_produto: $scope.valor,
+	    		forma_pgto: $scope.valor,
+	    		status: $scope.valor,
+	    		datahora_pedido: $scope.valor,
+	    		datahora_pagamento: $scope.valor,
+			};
+	    	
+	        $http.post("http://localhost:8080/ProjetoRestaurante/rest/venda/salvarPedido", dataObject).sucess(function(data) {
+				console.log(data);
+			});
+	    }
 	});
 	
 })();

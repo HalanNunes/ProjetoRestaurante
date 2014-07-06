@@ -9,7 +9,6 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -17,21 +16,18 @@ import javax.ws.rs.core.Response;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jettison.json.JSONException;
-import org.codehaus.jettison.json.JSONObject;
 
-import br.com.catolica.dao.CargoDao;
-import br.com.catolica.dao.FuncionarioDao;
-import br.com.catolica.model.Cargo;
-import br.com.catolica.model.Funcionario;
+import br.com.catolica.dao.ProdutoDao;
+import br.com.catolica.dao.VendaDao;
+import br.com.catolica.model.Categoria;
 import br.com.catolica.model.Produto;
+import br.com.catolica.model.Venda;
 import br.com.catolica.projetorestaurante.Conexao;
 
-@Path("/funcionario")
-public class FuncionarioController {
+@Path("/venda")
+public class VendaController {
 	
-	private FuncionarioDao dao = new FuncionarioDao();
-	private CargoDao daoCargo = new CargoDao();
+	private VendaDao dao = new VendaDao();
 	
 	/*@RequestMapping(value="/search/{id}")
 	public Cargo searchById(int id) {
@@ -39,15 +35,15 @@ public class FuncionarioController {
 	}*/
 	
 	@POST
-	@Path("/salvarFuncionario")
+	@Path("/salvarVenda")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response salvarFuncionario(final String json) throws JsonParseException, JsonMappingException, IOException, JSONException {
-		Funcionario ob = new ObjectMapper().readValue(json, Funcionario.class);
+	public Response salvarVenda(final String json) throws JsonParseException, JsonMappingException, IOException {
+		Venda ob = new ObjectMapper().readValue(json, Venda.class);
 		dao.save(ob);
 		return Response.ok("Meu nome é: "+json).build();
 	}
-
+	
 	/*@RequestMapping(value="/remove/{id}")
 	public void delete(@PathVariable int id) {
 		dao.removeById(id);
@@ -59,20 +55,14 @@ public class FuncionarioController {
 	
 	
 	@GET
-	@Path("/retornaFuncionarios")
+	@Path("/retornaVendas")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Funcionario> retornaFuncionarios() {
+	public List<Venda> retornaVendas() {
 		EntityManager manager = Conexao.getEntityManager();
-		Query query = manager.createQuery("SELECT f FROM Funcionario f");
-		List<Funcionario> funcionarios = query.getResultList();
+		Query query = manager.createQuery("SELECT v FROM Venda v");
+		List<Venda> vendas = query.getResultList();
 		manager.close();
-		return funcionarios;
+		return vendas;
 	}
 	
-	@GET
-	@Path("/retornarFuncionario/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Funcionario retornarFuncionario(@PathParam("id") String id){
-		return dao.searchById(Integer.parseInt(id));
-	}
 }
