@@ -25,7 +25,7 @@
 				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-thumbs-up" title="{{item.qtde_estoque}} itens disponíveis."></i></td>
 				<td class="text-center" ng-if="item.qtde_estoque == 0"><i class="glyphicon glyphicon-remove" title="Indisponível"></i></td>
 				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a></td>
-				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir"></i></a></td>
+				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir" ng-click="deleteItem({{item.id_produto}})"></i></a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -49,7 +49,7 @@
 				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-thumbs-up" title="{{item.qtde_estoque}} itens disponíveis."></i></td>
 				<td class="text-center" ng-if="item.qtde_estoque == 0"><i class="glyphicon glyphicon-remove" title="Indisponível"></i></td>
 				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a></td>
-				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir"></i></a></td>
+				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir" ng-click="deleteItem({{item.id_produto}})"></i></a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -73,7 +73,7 @@
 				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-thumbs-up" title="{{item.qtde_estoque}} itens disponíveis."></i></td>
 				<td class="text-center" ng-if="item.qtde_estoque == 0"><i class="glyphicon glyphicon-remove" title="Indisponível"></i></td>
 				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a></td>
-				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir"></i></a></td>
+				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir" ng-click="deleteItem({{item.id_produto}})"></i></a></td>
 			</tr>
 		</tbody>
 	</table>

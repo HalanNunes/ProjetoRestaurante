@@ -42,7 +42,7 @@ public class CargoDao implements CrudImpl<Cargo>{
 
 	public List<Cargo> searchAll() {
 		EntityManager manager = Conexao.getEntityManager();
-		Query query = manager.createQuery("SELECT * FROM cargo");
+		Query query = manager.createQuery("SELECT c FROM Cargo c");
 		List<Cargo> cargos = query.getResultList();
 		manager.close();
 		return cargos;

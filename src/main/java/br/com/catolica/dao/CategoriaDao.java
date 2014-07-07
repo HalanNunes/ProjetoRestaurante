@@ -37,7 +37,7 @@ public class CategoriaDao implements CrudImpl<Categoria>{
 
 	public List<Categoria> searchAll() {
 		EntityManager manager = Conexao.getEntityManager();
-		Query query = manager.createQuery("SELECT * FROM Categoria");
+		Query query = manager.createQuery("SELECT c FROM Categoria c");
 		List<Categoria> categorias = query.getResultList();
 		manager.close();
 		return categorias;

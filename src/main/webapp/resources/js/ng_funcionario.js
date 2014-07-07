@@ -79,9 +79,28 @@
         		$scope.cardapio = data;
         	});
 		}
+		
+		$scope.deleteItem = function(id){
+			$http.delete("http://localhost:8080/ProjetoRestaurante/rest/produto/excluiItem/"+id).
+        	success(function(data) {
+        		$scope.cardapio = data;
+        	});
+		}
+		
+	});
+	
+	app.controller('RetornaVendas', function ($http, $scope){
+		$scope.getVendas = function(){
+			$http.get("http://localhost:8080/ProjetoRestaurante/rest/venda/retornaVendas").
+        	success(function(data) {
+        		$scope.vendas = data;
+        	});
+		}
 	});
 	
 	app.controller('ProdutoControl', function ($http, $scope){
+		$scope.funcionario = {};
+		$scope.produto = {};
 		$scope.elements = [{id: 'produto1'}];
 		$scope.addNewProduto = function() {
 			var newItemNo = $scope.elements.length+1;
@@ -112,21 +131,18 @@
 		}
 		
 		$scope.submitFormVenda = function(){
-			var obj_prod = $scope.getProdutoById(28);
-			var obj_func = $scope.getFuncionarioById(28);
 	    	var dataObject = {
-	    		id_produto: obj_prod,
-	    		valor_produto: $scope.descricao,
-	    		mesa: $scope.valor,
-	    		id_funcionario: obj_func,
-	    		qtd_produto: $scope.valor,
-	    		forma_pgto: $scope.valor,
-	    		status: $scope.valor,
-	    		datahora_pedido: $scope.valor,
-	    		datahora_pagamento: $scope.valor,
+	    		id_produto: $scope.produto,
+	    		valor_produto: $scope.produto.valor,
+	    		mesa: $scope.mesa,
+	    		id_funcionario: $scope.funcionario,
+	    		qtd_produto: 4,
+	    		forma_pgto: 1,
+	    		status: 1,
+	    		datahora_pedido: Date.now()
+	    		//datahora_pagamento: $scope.valor,
 			};
-	    	
-	        $http.post("http://localhost:8080/ProjetoRestaurante/rest/venda/salvarPedido", dataObject).sucess(function(data) {
+	        $http.post("http://localhost:8080/ProjetoRestaurante/rest/venda/salvarVenda", dataObject).sucess(function(data) {
 				console.log(data);
 			});
 	    }

@@ -1,177 +1,62 @@
-<h2 class="sub-header">Pedidos em aberto</h2>
+<html ng-app="ProjetoRestaurante">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
+<script src="resources/js/ng_funcionario.js"></script>
+</head>
+<body>
+	<h2 class="sub-header">Pedidos em aberto</h2>
 
-<table class="table table-striped table-hover">
-	<thead>
-		<tr>
-			<th class="text-center">Mesa</th>
-			<th class="text-center">Chegada</th>
-			<th class="text-center">Garçon</th>
-			<th class="text-center">Total R$</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td class="text-right">13</td>
-			<td class="text-center">19:23</td>
-			<td>João</td>
-			<td class="text-right">43,90</td>
-			<td class="text-center"><a href=".pedido1"
-				data-toggle="collapse"><i class="glyphicon glyphicon-ok"
-					title="Fechar a conta" data-placement="top"></i></a></td>
-		</tr>
-		<tr>
-			<td colspan="100">
-				<div class="collapse pedido1">
-					<table class="table table-striped table-hover">
-						<tr>
-							<th class="text-center">Descrição</th>
-							<th class="text-center">Valor R$</th>
-							<th class="text-center">Garçon</th>
-							<th class="text-center">Hora do Pedido</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td class="text-center">Coca-Cola 2L</td>
-							<td class="text-center">4,99</td>
-							<td class="text-center">João</td>
-							<td class="text-center">19:23</td>
-							<td class="text-center"><input type="checkbox" checked /></td>
-						</tr>
-						<tr>
-							<td class="text-center">Coca-Cola 2L</td>
-							<td class="text-center">4,99</td>
-							<td class="text-center">João</td>
-							<td class="text-center">19:23</td>
-							<td class="text-center"><input type="checkbox" checked /></td>
-						</tr>
-					</table>
-					<div>
-						<strong>Total: R$ 9,98</strong><input type="button"
-							value="Fechar a Conta" class="btn pull-right btn-success" />
+	<table class="table table-striped table-hover" ng-controller="RetornaVendas" data-ng-init="getVendas()">
+		<thead>
+			<tr>
+				<th class="text-center">Mesa</th>
+				<th class="text-center">Chegada</th>
+				<th class="text-center">Garçon</th>
+				<th class="text-center">Total R$</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="venda in vendas">
+			<tr>
+				<td class="text-right">{{venda.mesa}}</td>
+				<td class="text-center">{{venda.datahora_pedido | date : 'medium'}}</td>
+				<td>{{venda.id_funcionario.nome}}</td>
+				<td class="text-right"></td>
+				<td class="text-center"><a href=".pedido1" data-toggle="collapse"><i class="glyphicon glyphicon-ok" title="Fechar a conta" data-placement="top"></i></a></td>
+			</tr>
+			<tr>
+				<td colspan="100">
+					<div class="collapse pedido1">
+						<table class="table table-striped table-hover">
+							<tr>
+								<th class="text-center">Descrição</th>
+								<th class="text-center">Valor R$</th>
+								<th class="text-center">Garçon</th>
+								<th class="text-center">Hora do Pedido</th>
+								<th></th>
+							</tr>
+							<tr>
+								<td class="text-center">Coca-Cola 2L</td>
+								<td cla	ss="text-center">4,99</td>
+								<td class="text-center">João</td>
+								<td class="text-center">19:23</td>
+								<td class="text-center"><input type="checkbox" checked /></td>
+							</tr>
+							<tr>
+								<td class="text-center">Coca-Cola 2L</td>
+								<td class="text-center">4,99</td>
+								<td class="text-center">João</td>
+								<td class="text-center">19:23</td>
+								<td class="text-center"><input type="checkbox" checked /></td>
+							</tr>
+						</table>
+						<div>
+							<strong>Total: R$ 9,98</strong><input type="button" value="Fechar a Conta" class="btn pull-right btn-success" />
+						</div>
 					</div>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td class="text-right">5</td>
-			<td class="text-center">19:37</td>
-			<td>João, Pedro</td>
-			<td class="text-right">18,50</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">21</td>
-			<td class="text-center">19:43</td>
-			<td>Pedro</td>
-			<td class="text-right">13,30</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">14</td>
-			<td class="text-center">19:45</td>
-			<td>Maria, João</td>
-			<td class="text-right">19,90</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">17</td>
-			<td class="text-center">19:51</td>
-			<td>Pedro</td>
-			<td class="text-right">12,00</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">8</td>
-			<td class="text-center">19:55</td>
-			<td>Maria</td>
-			<td class="text-right">27,90</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">2</td>
-			<td class="text-center">19:59</td>
-			<td>Maria</td>
-			<td class="text-right">32,00</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">19</td>
-			<td class="text-center">20:03</td>
-			<td>Pedro</td>
-			<td class="text-right">15,00</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">11</td>
-			<td class="text-center">20:08</td>
-			<td>João, Maria</td>
-			<td class="text-right">25,00</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">2</td>
-			<td class="text-center">20:11</td>
-			<td>Pedro</td>
-			<td class="text-right">19,00</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">4</td>
-			<td class="text-center">20:19</td>
-			<td>Pedro</td>
-			<td class="text-right">12,50</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">13</td>
-			<td class="text-center">20:25</td>
-			<td>João, Pedro</td>
-			<td class="text-right">22,90</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">10</td>
-			<td class="text-center">20:34</td>
-			<td>João</td>
-			<td class="text-right">16,00</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">15</td>
-			<td class="text-center">20:39</td>
-			<td>João</td>
-			<td class="text-right">13,00</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">16</td>
-			<td class="text-center">20:47</td>
-			<td>Pedro, Maria</td>
-			<td class="text-right">14,90</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-		<tr>
-			<td class="text-right">7</td>
-			<td class="text-center">20:56</td>
-			<td>Maria</td>
-			<td class="text-right">26,00</td>
-			<td class="text-center"><a href="#"><i
-					class="glyphicon glyphicon-ok" title="Fechar a conta"></i></a></td>
-		</tr>
-	</tbody>
-</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

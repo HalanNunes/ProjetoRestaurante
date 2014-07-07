@@ -3,9 +3,8 @@ package br.com.catolica.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -19,19 +18,12 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import br.com.catolica.dao.ProdutoDao;
-import br.com.catolica.model.Categoria;
 import br.com.catolica.model.Produto;
-import br.com.catolica.projetorestaurante.Conexao;
 
 @Path("/produto")
 public class ProdutoController {
 		
 	private ProdutoDao dao = new ProdutoDao();
-	
-	/*@RequestMapping(value="/search/{id}")
-	public Cargo searchById(int id) {
-		return dao.searchById(id);
-	}*/
 	
 	@POST
 	@Path("/salvarProduto")
@@ -42,26 +34,12 @@ public class ProdutoController {
 		dao.save(ob);
 		return Response.ok("Meu nome é: "+json).build();
 	}
-
-	/*@RequestMapping(value="/remove/{id}")
-	public void delete(@PathVariable int id) {
-		dao.removeById(id);
-	}
-
-	public List<Cargo> searchAll() {
-		return dao.searchAll();
-	}*/
-	
 	
 	@GET
 	@Path("/retornaCardapio")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Produto> retornaCardapio() {
-		EntityManager manager = Conexao.getEntityManager();
-		Query query = manager.createQuery("SELECT p FROM Produto p");
-		List<Produto> produtos = query.getResultList();
-		manager.close();
-		return produtos;
+		return dao.searchAll();
 	}
 	
 	@GET
@@ -75,10 +53,16 @@ public class ProdutoController {
 	@Path("/retornaProdutos")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Produto> retornaProdutos() {
-		EntityManager manager = Conexao.getEntityManager();
-		Query query = manager.createQuery("SELECT p FROM Produto p");
-		List<Produto> produtos = query.getResultList();
-		manager.close();
-		return produtos;
+		return dao.searchAll();
 	}
+	
+	
+	@DELETE
+	@Path("/excluirPath/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String excluirItem(@PathParam("id") String id){
+		System.out.println("opaopaopaopaopaopa");
+		return "Irá excluir o cliente "+id;
+	}
+	
 }
