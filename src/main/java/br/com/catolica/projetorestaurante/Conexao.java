@@ -12,8 +12,13 @@ public class Conexao {
 		//Gerando banco
 		if(factory == null){
 			factory = Persistence.createEntityManagerFactory("restaurantedb");
+			initData();
 		}
 		//Manager de Manipulação
 		return factory.createEntityManager();
+	}
+
+	private static void initData() {
+		
 	}
 }

@@ -81,7 +81,7 @@
 		}
 		
 		$scope.deleteItem = function(id){
-			$http.delete("http://localhost:8080/ProjetoRestaurante/rest/produto/excluiItem/"+id).
+			$http.delete("http://localhost:8080/ProjetoRestaurante/rest/produto/excluirItem/"+id).
         	success(function(data) {
         		$scope.cardapio = data;
         	});

@@ -58,11 +58,11 @@ public class ProdutoController {
 	
 	
 	@DELETE
-	@Path("/excluirPath/{id}")
+	@Path("/excluirItem/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String excluirItem(@PathParam("id") String id){
-		System.out.println("opaopaopaopaopaopa");
-		return "Irá excluir o cliente "+id;
+	public void excluirItem(@PathParam("id") String id){
+		System.out.println("opaopaopa");
+		dao.removeById(Integer.parseInt(id));
 	}
 	
 }
