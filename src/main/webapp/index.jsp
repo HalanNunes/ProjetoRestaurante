@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html ng-app="ProjetoRestaurante">
@@ -71,8 +70,8 @@
 		</div>
 	</div>
 	<!-- JS -->
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="resources/js/jquery-2.1.1.min.js"></script>
+	<script src="resources/js/jasny-bootstrap.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
 </body>
 </html>

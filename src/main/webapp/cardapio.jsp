@@ -14,7 +14,6 @@
 				<th class="text-center">Preço</th>
 				<th class="text-center">Estoque</th>
 				<th class="text-center"></th>
-				<th class="text-center"></th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="item in cardapio">
@@ -25,8 +24,7 @@
 				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-thumbs-up" title="{{item.qtde_estoque}} itens disponíveis."></i></td>
 				<td class="text-center" ng-if="item.qtde_estoque == 0"><i class="glyphicon glyphicon-remove" title="Indisponível"></i></td>
 				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a></td>
-				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir" ng-click="deleteItem(item.id_produto)"></i></a></td>
-			</tr>
+				</tr>
 		</tbody>
 	</table>
 
@@ -38,7 +36,6 @@
 				<th class="text-center">Preço</th>
 				<th class="text-center">Estoque</th>
 				<th class="text-center"></th>
-				<th class="text-center"></th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="item in cardapio">
@@ -49,8 +46,7 @@
 				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-thumbs-up" title="{{item.qtde_estoque}} itens disponíveis."></i></td>
 				<td class="text-center" ng-if="item.qtde_estoque == 0"><i class="glyphicon glyphicon-remove" title="Indisponível"></i></td>
 				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a></td>
-				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir" ng-click="deleteItem(item.id_produto)"></i></a></td>
-			</tr>
+				</tr>
 		</tbody>
 	</table>
 
@@ -62,7 +58,6 @@
 				<th class="text-center">Preço</th>
 				<th class="text-center">Estoque</th>
 				<th class="text-center"></th>
-				<th class="text-center"></th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="item in cardapio">
@@ -73,8 +68,7 @@
 				<td class="text-center" ng-if="item.qtde_estoque > 1"><i class="glyphicon glyphicon-thumbs-up" title="{{item.qtde_estoque}} itens disponíveis."></i></td>
 				<td class="text-center" ng-if="item.qtde_estoque == 0"><i class="glyphicon glyphicon-remove" title="Indisponível"></i></td>
 				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-pencil" title="Editar"></i></a></td>
-				<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash" title="Excluir" ng-click="deleteItem(item.id_produto)"></i></a></td>
-			</tr>
+				</tr>
 		</tbody>
 	</table>
 </body>
