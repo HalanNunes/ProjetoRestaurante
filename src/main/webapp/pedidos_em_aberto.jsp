@@ -22,11 +22,11 @@
 				<td class="text-center">{{venda.datahora_pedido | date : 'medium'}}</td>
 				<td>{{venda.id_funcionario.nome}}</td>
 				<td class="text-right"></td>
-				<td class="text-center"><a href=".pedido1" data-toggle="collapse"><i class="glyphicon glyphicon-ok" title="Fechar a conta" data-placement="top"></i></a></td>
+				<td class="text-center"><a href="#pedido{{venda.id_venda}}" data-toggle="collapse"><i class="glyphicon glyphicon-ok" title="Fechar a conta" data-placement="top"></i></a></td>
 			</tr>
 			<tr>
 				<td colspan="100">
-					<div class="collapse pedido1">
+					<div class="collapse" id="pedido{{venda.id_venda}}">
 						<table class="table table-striped table-hover">
 							<tr>
 								<th class="text-center">Descrição</th>

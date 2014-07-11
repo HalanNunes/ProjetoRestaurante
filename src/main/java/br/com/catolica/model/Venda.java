@@ -38,7 +38,6 @@ public class Venda implements Serializable{
 	@Column(nullable=false)
 	private int qtd_produto;
 	
-	@Column(nullable=false)
 	private int forma_pgto;
 	
 	@Column(nullable=false)
