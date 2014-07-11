@@ -18,7 +18,7 @@
 					<input id="mesa" name="mesa" type="text" ng-model="mesa" placeholder="" class="form-control input-md" required="">
 				</div>
 			</div>
-			
+
 			<div class="form-group" ng-controller="RetornaFuncionarios" data-ng-init="getFuncionarios()">
 				<label class="col-md-4 control-label" for="mesa">Funcionario</label>
 				<div class="col-md-2">
@@ -28,25 +28,34 @@
 				</div>
 			</div>
 
-			<div class="form-group" data-ng-init="getProdutos()">
-				<span class="input-group-btn">
-					<button class="btn btn-success btn-add" type="button" ng-show="showAddProduto(produto)" ng-click="addNewProduto()">
-						<span class="glyphicon glyphicon-plus"></span>
-					</button>
-				</span>
+			<div data-ng-init="getProdutos()">
 				<div ng-repeat="element in elements" sytle='margin-bottom:20px;'>
-					<label class="col-md-4 control-label" for="produto">Produto</label>
-					<div class="col-md-6">
-						<div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="produto">Produto</label>
+						<div class="col-md-2">
 							<select id="id_produto" ng-model="id_produto" ng-change="getProdutoById(this.id_produto.split(';')[0])" class="form-control input-md ng-pristine ng-untouched ng-valid">
 								<option ng-repeat="produto in produtos" value="{{produto.id_produto}};{{produto.descricao}}">{{produto.descricao}}</option>
 							</select>
 						</div>
+
+						<span ng-show="$last" class="input-group-btn">
+							<button class="btn btn-success btn-add" type="button" ng-show="showAddProduto(produto)" ng-click="addNewProduto()">
+								<span class="glyphicon glyphicon-plus"></span>
+							</button>
+						</span>
+						
+						<span ng-show="!$last" class="input-group-btn">
+							<button class="btn btn-danger btn-add" type="button" ng-show="showAddProduto(produto)" ng-click="removeProduto(element)">
+								<span class="glyphicon glyphicon-minus"></span>
+							</button>
+						</span>
 					</div>
-					<label class="col-md-4 control-label" for="produto">Quantidade</label>
-					<div class="col-md-6">
-						<div>
-							<input id="qtd_produto" ng-model="qtd_produto" type="text" class="form-control input-md" required="">
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="produto">Quantidade</label>
+						<div class="col-md-2">
+							<div>
+								<input id="qtd_produto" ng-model="qtd_produto" type="text" class="form-control input-md" required="">
+							</div>
 						</div>
 					</div>
 				</div>

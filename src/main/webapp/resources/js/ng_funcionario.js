@@ -101,13 +101,16 @@
 	app.controller('ProdutoControl', function ($http, $scope){
 		$scope.funcionario = {};
 		$scope.produto = {};
-		$scope.elements = [{id: 'produto1'}];
+		$scope.elements = [{id_produto: 'produto1'}];
 		$scope.addNewProduto = function() {
 			var newItemNo = $scope.elements.length+1;
 		  	$scope.elements.push({'id_produto':'produto'+newItemNo});
 		};
 		$scope.showAddProduto = function(produto) {
 			return produto.id_produto === $scope.produto[$scope.elements.length - 1].id_produto;
+		};
+		$scope.removeProduto = function(produto) {
+			$scope.elements.splice($scope.elements.indexOf(produto), 1);
 		};
 		$scope.getProdutos = function(){
 			$http.get("http://localhost:8080/ProjetoRestaurante/rest/produto/retornaProdutos").
