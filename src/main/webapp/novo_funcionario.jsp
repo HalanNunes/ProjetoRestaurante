@@ -18,7 +18,7 @@
 			<div class="form-group" ng-controller="RetornaCargos" data-ng-init="getCargos()">
 				<label class="col-md-4 control-label" for="cargo">Cargo</label>
 				<div class="col-md-6">
-					<select id="id_cargo" ng-model="id_cargo" class="form-control input-md ng-pristine ng-untouched ng-valid" placeholder="Selecione">
+					<select id="id_cargo" ng-model="id_cargo" class="form-control input-md ng-pristine ng-untouched ng-valid">
 						<option value="">Selecione</option>
 						<option ng-repeat="cargo in cargos" value="{{cargo.id_cargo}};{{cargo.descricao}}">{{cargo.descricao}}</option>
 					</select>
