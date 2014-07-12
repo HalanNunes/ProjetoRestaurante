@@ -10,7 +10,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class Conexao {
-	
+	private static CargoDao daoCargo = new CargoDao();
+	private static CategoriaDao daoCategoria = new CategoriaDao();
 	private static EntityManagerFactory factory; 
 	
 	public static EntityManager getEntityManager(){
@@ -24,8 +25,6 @@ public class Conexao {
 	}
 
 	private static void initData() {
-		CargoDao daoCargo = new CargoDao();
-		
 		Cargo cargo = new Cargo();
 		cargo.setDescricao("Garçon");
 		daoCargo.save(cargo);
@@ -41,21 +40,19 @@ public class Conexao {
 		Cargo cargo4 = new Cargo();
 		cargo4.setDescricao("Gerente");
 		daoCargo.save(cargo4);
-		
-		
-		CategoriaDao daoCat = new CategoriaDao();
+
 		
 		Categoria cat2 = new Categoria();
 		cat2.setDescricao("Bebida");
-		daoCat.save(cat2);
+		daoCategoria.save(cat2);
 		Categoria cat = new Categoria();
 		cat.setDescricao("Lanche");
-		daoCat.save(cat);
+		daoCategoria.save(cat);
 		Categoria cat1 = new Categoria();
 		cat1.setDescricao("Porção");
-		daoCat.save(cat1);
+		daoCategoria.save(cat1);
 		Categoria cat3 = new Categoria();
 		cat3.setDescricao("Sobremesa");
-		daoCat.save(cat3);
+		daoCategoria.save(cat3);
 	}
 }

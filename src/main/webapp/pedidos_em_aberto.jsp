@@ -1,7 +1,5 @@
 <html ng-app="ProjetoRestaurante">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular.min.js"></script>
-<script src="resources/js/ng_funcionario.js"></script>
 </head>
 <body>
 	<h2 class="sub-header">Pedidos em aberto</h2>

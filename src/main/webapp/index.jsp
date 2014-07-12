@@ -7,8 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-resource.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.13/angular-route.min.js"></script>
 <script src="https://cdn.firebase.com/v0/firebase.js"></script>
-<script src="resources/js/ng_funcionario.js"></script>
-<!-- <script src="resources/js/ng_produto.js"></script> -->
+<script src="resources/js/ng_functions.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
